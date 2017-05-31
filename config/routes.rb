@@ -6,4 +6,10 @@ Rails.application.routes.draw do
 
   get('/request/:id', {:controller => 'requests', :action => 'show'})
 
+  get('/requests', {:controller => 'requests', :action => 'index'})
+
+  get('/request', {:controller => 'requests', :action => 'new'})
+
+  get('/create_request', {:controller => 'requests', :action => 'create'})
+
 end
