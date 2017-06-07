@@ -7,9 +7,6 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Latest compiled and minified JavaScript -->
@@ -42,6 +39,12 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
+          <ul class="nav navbar-nav">
+            <li class=""><a href="/requests">Look at the requests <span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class=""><a href="/request">Request Something <span class="sr-only">(current)</span></a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user.present?%>
               <li><a href="/users/edit">Account Settings</a></li>
@@ -58,14 +61,7 @@
     <% if current_user.present?%>
       signed in as <%= current_user.email %>
       <a data-method='delete' href="/users/sign_out">Bye Bye</a>
-      <br><br>  
-      <div class="">
-        <a href="/requests" class="btn btn-primary">Look at all the requests</a>
-      </div>
-      <br><br>
-      <div class="">
-        <a href="/request" class="btn btn-info">Request Something</a>
-      </div>
+
     <% else %>
     <a href="/users/sign_in">Hello Again</a>
     <a href="/users/sign_up">Join Us</a>

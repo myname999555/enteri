@@ -1,16 +1,25 @@
-<form class="" action="/create_request">
+<h1>Create new Request!</h1>
 
-<label for="name">What is the Name of your Request?</label>
-<input type="text" id ="name" name="item_name" value="">
-<br><br>
-<label for="description">Desribe what you want?</label>
-<input type="text" id ="description" name="description" value="">
-<br><br>
-<label for="public">Are you sure you actually want to do this?</label>
-<input type="checkbox" id ="public" name="is_public" value="true">
-<br><br>
+<form  class="spacer" action="/create_request">
+
+<div class="form-group">
+  <label for="name">What is the Name of your Request?</label>
+  <input type="text" class="form-control" id ="name" name="item_name" value="">
+</div>
+
+<div class="form-group">
+  <label for="description">Desribe what you want?</label>
+  <textarea type="text" rows=8 class="form-control" id ="description" name="description" value=""></textarea>
+</div>
+
+<div class="checkbox">
+    <label for="public">
+      <input type="checkbox" id ="public" name="is_public" value="true"> Are you sure you actually want to do this?
+    </label>
+</div>
+
 <input type="hidden" name="user_id" value="<%= current_user.id %>">
 
-<input type="submit" name="subbmett" value="Submit your request">
+<input class="btn btn-default"type="submit" name="subbmett" value="Submit your request">
 
 </form>
