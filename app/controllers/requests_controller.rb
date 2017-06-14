@@ -28,4 +28,10 @@ class RequestsController < ApplicationController
     redirect_to('/requests')
   end
 
+  def remove
+      @request=Request.find(params['id'])
+      @request.destroy
+      redirect_to "/requests"
+  end
+
 end

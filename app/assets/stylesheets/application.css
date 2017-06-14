@@ -28,3 +28,7 @@
 .small-spacer{
   padding-top:30px;
 }
+
+.form-inline .form-control.wider{
+  width:500px;
+}
