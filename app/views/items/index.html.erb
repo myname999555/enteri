@@ -1,0 +1,41 @@
+<h1>Current Trending Items!</h1>
+
+<div  class="small-spacer" ></div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+
+
+      <% @items.each do |item| %>
+        <div class="col-md-6">
+          <% user=User.find(item.user_id) %>
+
+          <div class="panel panel-default margin-spacer">
+            <div class="panel-heading">  <span class="space">#<%= item.id %>.</span> <%= user.email %> </div>
+            <div class="panel-body">
+              <%= item.name%>,
+              <br>
+              <%= item.description%>,
+              <br>
+              <%= item.image%>
+              <br><br>
+
+
+
+              <% if user==current_user %>
+
+              <a class="btn btn-danger"href="/remove_item/<%=item.id%>">Destroy Item</a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

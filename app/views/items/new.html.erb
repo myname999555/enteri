@@ -1,0 +1,30 @@
+<h1>Create new Item!</h1>
+
+<form  class="spacer" action="/create_item">
+
+<div class="form-group">
+  <label for="name">What is the Name of your Item?</label>
+  <input type="text" class="form-control" id ="name" name="name" value="">
+</div>
+
+<div class="form-group">
+  <label for="description">Desribe what you are going to make.</label>
+  <input type="text" class="form-control" id ="description" name="description" value="">
+</div>
+
+<div class="form-group">
+  <label for="description">Show an image of your item.</label>
+  <input type="text" class="form-control" id ="image" name="image" value="">
+</div>
+
+<div class="checkbox">
+    <label for="public">
+      <input type="checkbox" id ="public" name="is_public" value="true"> Are you sure you actually want to do this?
+    </label>
+</div>
+
+<input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+<input class="btn btn-default"type="submit" name="subbmett" value="Submit your item">
+
+</form>
