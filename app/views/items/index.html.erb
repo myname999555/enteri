@@ -12,7 +12,7 @@
         <div class="col-md-6">
           <% user=User.find(item.user_id) %>
 
-          <div class="panel panel-default margin-spacer">
+          <div class="panel panel-default margin-spacer under-spacer">
             <div class="panel-heading">  <span class="space">#<%= item.id %>.</span> <%= user.email %> </div>
             <div class="panel-body border-control">
 
@@ -23,14 +23,16 @@
                   <%= item.description%>,
                   <br>
                   <br><br>
+
+                </div>
+
+                <div class="col-md-7">
+                  <img src="<%= item.image %>" alt="" height="141" width="228">
+                  <br><br>
                   <% if user==current_user %>
 
                   <a class="btn btn-danger"href="/remove_item/<%=item.id%>">Destroy Item</a>
                   <% end %>
-                </div>
-
-                <div class="col-md-7">
-                  <img src="<%= item.image %>" alt="">
                 </div>
               </div>
 

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get('/remove_request/:id', {:controller => 'requests', :action => 'remove'})
 
+  get('/answer_request', {:controller => 'requests', :action => 'answer'})
+
   get('/make_item', {:controller => 'items', :action => 'new'})
 
   get('/create_item', {:controller => 'items', :action => 'create'})

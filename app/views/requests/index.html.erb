@@ -9,7 +9,7 @@
 
 
       <% @requests.each do |request| %>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <% user=User.find(request.user_id) %>
           <% item=Item.find(request.item_id) %>
 
@@ -26,6 +26,8 @@
               <% if user==current_user %>
 
               <a class="btn btn-danger" href="/remove_request/<%=request.id%>">Remove Request</a>
+              <% else %>
+              <a class="btn btn-info" href="/answer_request">Answer Request</a>
               <% end %>
             </div>
           </div>
