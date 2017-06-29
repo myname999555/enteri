@@ -32,3 +32,7 @@
 .form-inline .form-control.wider{
   width:500px;
 }
+
+.border-control {
+  height:200px;
+}

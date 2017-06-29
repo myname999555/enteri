@@ -14,20 +14,27 @@
 
           <div class="panel panel-default margin-spacer">
             <div class="panel-heading">  <span class="space">#<%= item.id %>.</span> <%= user.email %> </div>
-            <div class="panel-body">
-              <%= item.name%>,
-              <br>
-              <%= item.description%>,
-              <br>
-              <%= item.image%>
-              <br><br>
+            <div class="panel-body border-control">
+
+              <div class="row">
+                <div class="col-md-5">
+                  <%= item.name%>,
+                  <br>
+                  <%= item.description%>,
+                  <br>
+                  <br><br>
+                  <% if user==current_user %>
+
+                  <a class="btn btn-danger"href="/remove_item/<%=item.id%>">Destroy Item</a>
+                  <% end %>
+                </div>
+
+                <div class="col-md-7">
+                  <img src="<%= item.image %>" alt="">
+                </div>
+              </div>
 
 
-
-              <% if user==current_user %>
-
-              <a class="btn btn-danger"href="/remove_item/<%=item.id%>">Destroy Item</a>
-              <% end %>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 class Request < ApplicationRecord
 
-  validates :item_name, :description, :is_public, :user_id, presence: true
+  validates :description, :is_public, :user_id, :item_id, presence: true
 
 end

@@ -11,11 +11,12 @@
       <% @requests.each do |request| %>
         <div class="col-md-6">
           <% user=User.find(request.user_id) %>
+          <% item=Item.find(request.item_id) %>
 
           <div class="panel panel-default margin-spacer">
             <div class="panel-heading">  <span class="space">#<%= request.id %>.</span> <%= user.email %> </div>
             <div class="panel-body">
-              <%= request.item_name%>,
+              <%= item.name%>,
               <br>
               <%= request.description%>
               <br><br>

@@ -20,7 +20,7 @@ class RequestsController < ApplicationController
 
   def create
     r=Request.new
-    r.item_name=params['item_name']
+    r.item_id=params['item_id']
     r.description=params['description']
     r.is_public=params['is_public']
     r.user_id=params['user_id']
