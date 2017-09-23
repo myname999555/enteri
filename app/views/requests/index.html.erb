@@ -25,8 +25,19 @@
 
               <% if user==current_user %>
 
-              <a class="btn btn-danger" href="/remove_request/<%=request.id%>">Remove Request</a>
+                <a class="btn btn-danger" href="/remove_request/<%=request.id%>">Remove Request</a>
+
+              <% elsif Response.find_by(request_id: request.id, user_id: user.id) %>
+
+                <h4>You already responded.</h4>
+
+              <% else %>
+
+              <a class="btn btn-success request-answer" href="/answer_response/<%=request.id%>">Answer Request</a>
+
               <% end %>
+
+
             </div>
           </div>
         </div>

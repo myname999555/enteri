@@ -36,3 +36,12 @@
 .border-control {
   height:200px;
 }
+
+.size-of-image {
+  max-width: 212px;
+}
+
+.request-answer {
+  background-color: PaleTurquoise;
+  border-color: DarkTurquoise;
+}

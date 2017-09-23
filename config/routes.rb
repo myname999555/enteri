@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   get('/remove_item/:id', {:controller => 'items', :action => 'remove'})
 
+  get('/answer_response/:id', {:controller => 'responses', :action => 'answer'})
+
 end
