@@ -29,19 +29,36 @@
   padding-top:30px;
 }
 
+.under-spacer{
+  padding-bottom:40px;
+}
+
 .form-inline .form-control.wider{
   width:500px;
 }
 
 .border-control {
-  height:200px;
+  height:220px;
 }
 
 .size-of-image {
-  max-width: 212px;
+  width: 212px;
+  max-height: 131px;
 }
 
 .request-answer {
   background-color: PaleTurquoise;
   border-color: DarkTurquoise;
+}
+
+.destroy-button-container {
+  margin-top: 20px;
+}
+
+.response-description {
+  height: 120px;
+}
+
+.remove-button-padding {
+  margin-bottom: 87px;
 }

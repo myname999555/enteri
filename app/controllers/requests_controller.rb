@@ -34,4 +34,10 @@ class RequestsController < ApplicationController
       redirect_to "/requests"
   end
 
+  def answer
+    render(
+      'answer.html.erb'
+    )
+  end
+
 end

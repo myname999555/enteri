@@ -9,7 +9,7 @@
 
 
       <% @requests.each do |request| %>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <% user=User.find(request.user_id) %>
           <% item=Item.find(request.item_id) %>
 
@@ -25,15 +25,23 @@
 
               <% if user==current_user %>
 
-                <a class="btn btn-danger" href="/remove_request/<%=request.id%>">Remove Request</a>
+                <a class="btn btn-danger remove-button-padding" href="/remove_request/<%=request.id%>">Remove Request</a>
 
               <% elsif Response.find_by(request_id: request.id, user_id: user.id) %>
 
                 <h4>You already responded.</h4>
 
               <% else %>
+                <form class="form-inline" action="/answer_response/" method="post">
+                  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+                  <input type="hidden" name="request_id" value="<%= request.id %>">
+                  <input type="hidden" name="item_id" value="<%= item.id %>">
+                  <div class="form-group">
+                    <input type="text" class="form-control response-description" name="description" value="">
+                  </div>
+                  <button type="submit" class="btn btn-success request-answer">Answer Request </button>
 
-              <a class="btn btn-success request-answer" href="/answer_response/<%=request.id%>">Answer Request</a>
+                </form>
 
               <% end %>
 
