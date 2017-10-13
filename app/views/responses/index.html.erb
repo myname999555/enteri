@@ -1,0 +1,45 @@
+<h1>Your Current Responses</h1>
+
+<div  class="small-spacer" ></div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+
+
+      <% @requests.each do |request| %>
+        <div class="col-md-5">
+          <% user=User.find(request.user_id) %>
+          <% item=Item.find(request.item_id) %>
+
+          <% responses=Response.where(:request_id => request.id) %>
+
+          <div class="panel panel-default margin-spacer">
+            <div class="panel-heading">  <span class="space">#<%= request.id %>.</span> <%= user.email %> </div>
+            <div class="panel-body">
+              <%= item.name%>,
+              <br>
+              <%= request.description%>
+              <br><br>
+
+
+
+              <% responses.each do |response| %>
+
+                <li><%= response.description %></li>
+                <br>
+
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
