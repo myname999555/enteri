@@ -24,4 +24,14 @@ class ResponsesController < ApplicationController
     )
   end
 
+  def alerts
+    render(
+      'alerts.html.erb'
+    )
+  end
+
+  def accept
+    
+  end
+
 end

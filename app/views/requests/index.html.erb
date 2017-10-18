@@ -32,7 +32,7 @@
                 <h4>You already responded.</h4>
 
               <% else %>
-                <form class="form-inline" action="/answer_response/" method="post">
+                <form class="form-inline" action="/answer_request/" method="post">
                   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
                   <input type="hidden" name="user_id" value="<%= current_user.id %>">
                   <input type="hidden" name="request_id" value="<%= request.id %>">

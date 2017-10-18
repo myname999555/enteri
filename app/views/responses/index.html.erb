@@ -30,6 +30,12 @@
                 <li><%= response.description %></li>
                 <br>
 
+                <button type="button" class="btn btn-info response-answer" data-toggle="modal" data-target="#myModal" data-response-id="<%= response.id %>">
+                  Accept
+                </button>
+
+
+
               <% end %>
 
             </div>
@@ -43,3 +49,43 @@
     </div>
   </div>
 </div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Are you sure about this?</h4>
+      </div>
+      <div class="modal-body">
+        Do you really want to accept this offer from this random person that you probably don't know?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Nay</button>
+
+        <form class="form-inline" action="/answer_response/" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="user_id" value="<%= current_user.id %>">
+          <input type="hidden" name="response_id" value="">
+          <input type="hidden" name="accept" value="true">
+          <button type="button" class="btn btn-success">Yah</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#myModal').on('show.bs.modal',function(e) {
+    var responseId = $(e.relatedTarget).data('response-id');
+    $(e.currentTarget).find('input[name="response_id"]').val(responseId);
+  })
+</script>

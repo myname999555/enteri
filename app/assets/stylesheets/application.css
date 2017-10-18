@@ -62,3 +62,8 @@
 .remove-button-padding {
   margin-bottom: 87px;
 }
+
+.response-answer {
+  background-color: Orchid;
+  border-color: DarkOrchid;
+}

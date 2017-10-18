@@ -24,8 +24,12 @@ Rails.application.routes.draw do
 
   get('/remove_item/:id', {:controller => 'items', :action => 'remove'})
 
-  post('/answer_response', {:controller => 'responses', :action => 'answer'})
+  post('/answer_request', {:controller => 'responses', :action => 'answer'})
 
   get('/responses', {:controller => 'responses', :action => 'index'})
+
+  get('/notifications', {:controller => 'responses', :action => 'alerts'})
+
+  post('/answer_response', {:controller => 'responses', :action => 'accept'})
 
 end
