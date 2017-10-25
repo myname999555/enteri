@@ -30,16 +30,8 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class=""><a href="#">Balance <span class="sr-only">(current)</span></a></li>
-          </ul>
-          <form class="navbar-form navbar-left">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav">
+
+          <ul class="nav navbar-nav navbar-spacer">
             <li class=""><a href="/requests">Look at the requests <span class="sr-only">(current)</span></a></li>
             <li class=""><a href="/request">Request Something <span class="sr-only">(current)</span></a></li>
             <li class=""><a href="/make_item">Make an item <span class="sr-only">(current)</span></a></li>
@@ -59,6 +51,30 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <% if notice.present? %>
+
+            <div class="alert alert-success alert-dismissible " role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <%= notice %>
+            </div>
+          <% end %>
+
+          <% if alert.present? %>
+            <div class="alert alert-danger alert-dismissible " role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <%= alert %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
 
     <% if current_user.present?%>
       signed in as <%= current_user.email %>

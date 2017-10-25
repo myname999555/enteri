@@ -67,3 +67,20 @@
   background-color: Orchid;
   border-color: DarkOrchid;
 }
+
+.navbar-spacer {
+  margin-left: 200px;
+}
+
+.navbar-default {
+  background-color: #eeeeee;
+  border-color: #dddddd;
+}
+
+body {
+  background-color: #e4e7e2;
+}
+
+.nay-yah-space {
+  display : inline-block;
+}
