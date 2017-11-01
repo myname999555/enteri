@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   get('/notifications', {:controller => 'responses', :action => 'alerts'})
 
-  post('/answer_response', {:controller => 'responses', :action => 'accept'})
+  post('/accept_response', {:controller => 'responses', :action => 'accept'})
+
+  post('/reject_response', {:controller => 'responses', :action => 'reject'})
 
 end

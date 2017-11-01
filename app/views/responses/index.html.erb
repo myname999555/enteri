@@ -17,26 +17,47 @@
 
           <div class="panel panel-default margin-spacer">
             <div class="panel-heading">  <span class="space"><b>Responses for days</b></span></div>
-            <div class="panel-body">
-              <%= item.name%>,
+            <div class="panel-body response">
+              <h4><%= item.name%>,
               <br>
-              <%= request.description%>
+              <%= request.description%></h4>
               <br><br>
 
 
 
               <% responses.each do |response| %>
 
-                <li><%= response.description %></li>
-                <br>
+                <% if response.accept == true %>
 
-                <button type="button" class="btn btn-info response-answer" data-toggle="modal" data-target="#accept_response" data-response-id="<%= response.id %>">
-                  Accept
-                </button>
+                  <li><strong>You successfully accepted this response.</strong>
+                  <br>
+                  <%= response.description %></li>
+                  <br>
 
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deny_access" data-response-id="<%= response.id %>">
-                  Refuse
-                </button>
+
+                <% elsif response.accept ==false %>
+
+                  <li><strong>You successfully rejected this response.</strong>
+                  <br>
+                  <%= response.description %></li>
+                  <br>
+
+
+                <% else %>
+
+                  <li><%= response.description %></li>
+                  <br>
+
+                  <button type="button" class="btn btn-info response-answer" data-toggle="modal" data-target="#accept_response" data-response-id="<%= response.id %>">
+                    Accept
+                  </button>
+
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deny_access" data-response-id="<%= response.id %>">
+                    Refuse
+                  </button>
+
+
+                <% end %>
 
               <% end %>
 
@@ -72,12 +93,12 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Nay</button>
 
-        <form class="form-inline nay-yah-space" action="/answer_response/" method="post">
+        <form class="form-inline nay-yah-space" action="/accept_response/" method="post">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="hidden" name="user_id" value="<%= current_user.id %>">
           <input type="hidden" name="response_id" value="">
           <input type="hidden" name="accept" value="true">
-          <button type="button" class="btn btn-success">Yah</button>
+          <button type="submit" class="btn btn-success">Yah</button>
         </form>
 
       </div>
@@ -98,12 +119,12 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-dismiss="modal">Nay</button>
 
-        <form class="form-inline nay-yah-space" action="/answer_response/" method="post">
+        <form class="form-inline nay-yah-space" action="/reject_response/" method="post">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <input type="hidden" name="user_id" value="<%= current_user.id %>">
           <input type="hidden" name="response_id" value="">
-          <input type="hidden" name="accept" value="true">
-          <button type="button" class="btn btn-danger">Yah</button>
+          <input type="hidden" name="accept" value="false">
+          <button type="submit" class="btn btn-danger">Yah</button>
         </form>
 
       </div>
@@ -114,7 +135,7 @@
 
 
 <script type="text/javascript">
-  $('#myModal').on('show.bs.modal',function(e) {
+  $('#accept_response, #deny_access').on('show.bs.modal',function(e) {
     var responseId = $(e.relatedTarget).data('response-id');
     $(e.currentTarget).find('input[name="response_id"]').val(responseId);
   })

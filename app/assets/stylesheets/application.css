@@ -84,3 +84,7 @@ body {
 .nay-yah-space {
   display : inline-block;
 }
+
+.response {
+  overflow-wrap: break-word;
+}

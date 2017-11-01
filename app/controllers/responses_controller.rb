@@ -31,7 +31,21 @@ class ResponsesController < ApplicationController
   end
 
   def accept
-    
+    r=Response.find(params['response_id'])
+    r.accept=params['accept']
+    r.save
+    redirect_to(
+      '/responses', notice: "You successfully accept this response."
+    )
+  end
+
+  def reject
+    r=Response.find(params['response_id'])
+    r.accept=params['accept']
+    r.save
+    redirect_to(
+      '/responses', notice: "You successfully rejected this response."  
+    )
   end
 
 end
