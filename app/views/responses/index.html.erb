@@ -13,8 +13,7 @@
           <% user=User.find(request.user_id) %>
           <% item=Item.find(request.item_id) %>
 
-          <% responses=Response.where(:request_id => request.id) %>
-
+          <% responses=Response.where("(request_id = ? AND ((accept IS NULL) OR ((accept = ? OR accept = ?) AND updated_at > ?)))", request.id, true, false, DateTime.now-1.day) %> 
           <div class="panel panel-default margin-spacer">
             <div class="panel-heading">  <span class="space"><b>Responses for days</b></span></div>
             <div class="panel-body response">
