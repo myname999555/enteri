@@ -73,12 +73,9 @@
 }
 
 .navbar-default {
-  background-color: #eeeeee;
-  border-color: #dddddd;
-}
-
-body {
-  background-color: #e4e7e2;
+  background-color: Coral;
+  border-color: Papayawhip;
+  border-width: 5px;
 }
 
 .nay-yah-space {
